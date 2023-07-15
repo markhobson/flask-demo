@@ -27,3 +27,17 @@ flask run
 ```
 
 Open http://127.0.0.1:5000.
+
+## Running tests
+
+Install the test dependencies:
+
+```bash
+pip install -e .[test]
+```
+
+Run the tests:
+
+```bash
+pytest tests
+```
