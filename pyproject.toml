@@ -1,0 +1,6 @@
+[project]
+name = "flask-demo"
+version = "1.0.0"
+dependencies = [
+    "flask"
+]
