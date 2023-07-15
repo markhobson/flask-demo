@@ -1,3 +1,4 @@
+import inject
 from flask import Flask
 
 app = Flask(__name__)
@@ -7,6 +8,9 @@ class ProductRepository:
         return ["a", "b", "c"]
 
 @app.route("/")
-def index():
-    products = ProductRepository().get_all()
+@inject.autoparams()
+def index(product_repository: ProductRepository):
+    products = product_repository.get_all()
     return f"<p>{products}</p>"
+
+inject.configure()
