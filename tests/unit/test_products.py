@@ -8,7 +8,7 @@ class TestProductRepository:
         
         products = product_repository.get_all()
 
-        assert products == ["a", "b", "c"]
+        assert products == ["Apple", "Banana", "Carrot"]
 
 
 class TestProductView:

@@ -6,7 +6,7 @@ from flask.views import View
 
 class ProductRepository:
     def get_all(self):
-        return ["a", "b", "c"]
+        return ["Apple", "Banana", "Carrot"]
 
 
 class ProductView(View):
