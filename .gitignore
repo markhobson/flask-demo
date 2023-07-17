@@ -6,3 +6,6 @@ __pycache__/
 
 # pip
 /*.egg-info/
+
+# Visual Studio Code
+/.vscode/
