@@ -1,5 +1,14 @@
 from unittest.mock import Mock
-from app.products import ProductView
+from app.products import ProductRepository, ProductView
+
+
+class TestProductRepository:
+    def test_get_all(self):
+        product_repository = ProductRepository()
+        
+        products = product_repository.get_all()
+
+        assert products == ["a", "b", "c"]
 
 
 class TestProductView:
