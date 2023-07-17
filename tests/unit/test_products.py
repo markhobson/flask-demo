@@ -1,5 +1,5 @@
 from unittest.mock import Mock
-from app import ProductView
+from products import ProductView
 
 def test_index():
     product_repository = Mock()

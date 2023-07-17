@@ -1,5 +1,5 @@
 import inject
-from app import ProductRepository
+from products import ProductRepository
 
 class FakeProductRepository:
     def get_all(self):
