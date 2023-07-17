@@ -1,5 +1,5 @@
 import inject
-from products import ProductRepository
+from app.products import ProductRepository
 
 
 class FakeProductRepository:

@@ -1,6 +1,6 @@
 import inject
 from flask import Flask
-from products import ProductView
+from app.products import ProductView
 
 
 def create_app():

@@ -1,5 +1,5 @@
 from unittest.mock import Mock
-from products import ProductView
+from app.products import ProductView
 
 
 def test_index():
