@@ -1,4 +1,5 @@
 import inject
+from flask import render_template
 from flask.blueprints import Blueprint
 from flask.views import View
 
@@ -15,7 +16,7 @@ class ProductView(View):
 
     def dispatch_request(self):
         products = self.product_repository.get_all()
-        return f"<p>{products}</p>"
+        return render_template("index.html", products=products)
 
 
 bp = Blueprint("products", __name__)
