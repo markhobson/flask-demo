@@ -1,6 +1,7 @@
 import inject
 from flask.views import View
 
+
 class ProductRepository:
     def get_all(self):
         return ["a", "b", "c"]

@@ -1,6 +1,7 @@
 import inject
 from products import ProductRepository
 
+
 class FakeProductRepository:
     def get_all(self):
         return ["x", "y", "z"]
