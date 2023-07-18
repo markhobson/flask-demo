@@ -1,5 +1,5 @@
 from unittest.mock import Mock
-from app.products import ProductRepository, ProductView
+from app.products import ProductRepository, index
 
 
 class TestProductRepository:
@@ -11,15 +11,13 @@ class TestProductRepository:
         assert products == ["Apple", "Banana", "Carrot"]
 
 
-class TestProductView:
-    def test_index(self, app):
-        product_repository = Mock()
-        product_repository.get_all = Mock(return_value=["x", "y", "z"])
-        view = ProductView(product_repository)
+def test_index(app):
+    product_repository = Mock()
+    product_repository.get_all = Mock(return_value=["x", "y", "z"])
 
-        with app.app_context():
-            response = view.dispatch_request()
+    with app.app_context():
+        response = index(product_repository)
 
-        assert "<li>x</li>" in response \
-            and "<li>y</li>" in response \
-            and "<li>z</li>" in response
+    assert "<li>x</li>" in response \
+        and "<li>y</li>" in response \
+        and "<li>z</li>" in response
