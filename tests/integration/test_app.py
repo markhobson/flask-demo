@@ -18,7 +18,7 @@ def container():
     inject.clear()
 
 
-def test_index(client, container):
+def test_list_products(client, container):
     response = client.get("/")
 
     assert "<li>x</li>" in response.text \
