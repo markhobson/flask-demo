@@ -7,4 +7,5 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+build = ["mypy"]
 test = ["pytest"]

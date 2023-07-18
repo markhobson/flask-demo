@@ -28,6 +28,20 @@ flask run
 
 Open http://127.0.0.1:5000.
 
+## Linting
+
+Install the build dependencies:
+
+```bash
+pip install -e .[build]
+```
+
+Run the static type checker:
+
+```bash
+mypy --strict .
+```
+
 ## Running tests
 
 Install the test dependencies:
