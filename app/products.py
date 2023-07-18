@@ -1,11 +1,18 @@
+from typing import Iterable
+from dataclasses import dataclass
 import inject
 from flask import render_template
 from flask.blueprints import Blueprint
 
 
+@dataclass
+class Product:
+    name: str
+
+
 class ProductRepository:
-    def get_all(self):
-        return ["Apple", "Banana", "Carrot"]
+    def get_all(self) -> Iterable[Product]:
+        return [Product("Apple"), Product("Banana"), Product("Carrot")]
 
 
 bp = Blueprint("products", __name__)

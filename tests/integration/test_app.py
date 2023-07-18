@@ -1,11 +1,12 @@
+from typing import Iterable
 import pytest
 import inject
-from app.products import ProductRepository
+from app.products import Product, ProductRepository
 
 
 class FakeProductRepository:
-    def get_all(self):
-        return ["x", "y", "z"]
+    def get_all(self) -> Iterable[Product]:
+        return [Product("x"), Product("y"), Product("z")]
 
 
 @pytest.fixture()

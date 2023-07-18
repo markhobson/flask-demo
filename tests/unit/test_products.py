@@ -1,5 +1,5 @@
 from unittest.mock import Mock
-from app.products import ProductRepository, index
+from app.products import Product, ProductRepository, index
 
 
 class TestProductRepository:
@@ -8,12 +8,12 @@ class TestProductRepository:
         
         products = product_repository.get_all()
 
-        assert products == ["Apple", "Banana", "Carrot"]
+        assert products == [Product("Apple"), Product("Banana"), Product("Carrot")]
 
 
 def test_index(app):
     product_repository = Mock()
-    product_repository.get_all = Mock(return_value=["x", "y", "z"])
+    product_repository.get_all = Mock(return_value=[Product("x"), Product("y"), Product("z")])
 
     with app.app_context():
         response = index(product_repository)
