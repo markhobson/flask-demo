@@ -42,6 +42,12 @@ Reformat the code:
 black .
 ```
 
+Organise imports:
+
+```bash
+isort .
+```
+
 Lint the code:
 
 ```bash

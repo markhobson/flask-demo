@@ -9,10 +9,14 @@ dependencies = [
 [project.optional-dependencies]
 build = [
     "black",
+    "isort",
     "mypy",
     "pylint"
 ]
 test = ["pytest"]
+
+[tool.isort]
+profile = "black"
 
 [tool.pylint.'MESSAGES CONTROL']
 disable = [
