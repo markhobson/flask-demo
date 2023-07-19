@@ -1,8 +1,10 @@
 from typing import Generator, Iterable
-import pytest
+
 import inject
-from inject import Binder
+import pytest
 from flask.testing import FlaskClient
+from inject import Binder
+
 from app.products import Product, ProductRepository
 
 

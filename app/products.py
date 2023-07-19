@@ -1,5 +1,6 @@
-from typing import Iterable
 from dataclasses import dataclass
+from typing import Iterable
+
 import inject
 from flask import render_template
 from flask.blueprints import Blueprint
