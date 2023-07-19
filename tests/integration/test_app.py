@@ -11,7 +11,7 @@ class FakeProductRepository:
 
     def get_all(self) -> Iterable[Product]:
         return self.products
-    
+
     def get(self, product_id: int) -> Product:
         return next(filter(lambda product: product.id == product_id, self.products))
 
@@ -20,6 +20,7 @@ class FakeProductRepository:
 def container() -> Generator[None, None, None]:
     def configure(binder: Binder) -> None:
         binder.bind(ProductRepository, FakeProductRepository())
+
     inject.clear_and_configure(configure)
     yield
     inject.clear()
@@ -28,9 +29,11 @@ def container() -> Generator[None, None, None]:
 def test_list_products(client: FlaskClient, container: None) -> None:
     response = client.get("/")
 
-    assert '<a href="/1">x</a>' in response.text \
-        and '<a href="/2">y</a>' in response.text \
+    assert (
+        '<a href="/1">x</a>' in response.text
+        and '<a href="/2">y</a>' in response.text
         and '<a href="/3">z</a>' in response.text
+    )
 
 
 def test_get_product(client: FlaskClient, container: None) -> None:
