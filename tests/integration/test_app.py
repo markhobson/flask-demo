@@ -9,7 +9,8 @@ from app.products import Product, ProductRepository
 
 
 class FakeProductRepository:
-    products = [Product(1, "x"), Product(2, "y"), Product(3, "z")]
+    def __init__(self, products: Iterable[Product]):
+        self.products = products
 
     def get_all(self) -> Iterable[Product]:
         return self.products
@@ -26,7 +27,10 @@ def container() -> Generator[None, None, None]:
 
 def test_list_products(client: FlaskClient, container: None) -> None:
     def config(binder: Binder) -> None:
-        binder.bind(ProductRepository, FakeProductRepository())
+        binder.bind(
+            ProductRepository,
+            FakeProductRepository([Product(1, "x"), Product(2, "y"), Product(3, "z")]),
+        )
 
     inject.clear_and_configure(config)
 
@@ -41,7 +45,10 @@ def test_list_products(client: FlaskClient, container: None) -> None:
 
 def test_get_product(client: FlaskClient, container: None) -> None:
     def config(binder: Binder) -> None:
-        binder.bind(ProductRepository, FakeProductRepository())
+        binder.bind(
+            ProductRepository,
+            FakeProductRepository([Product(1, "x"), Product(2, "y"), Product(3, "z")]),
+        )
 
     inject.clear_and_configure(config)
 
