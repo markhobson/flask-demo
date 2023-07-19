@@ -28,12 +28,18 @@ flask run
 
 Open http://127.0.0.1:5000.
 
-## Linting
+## Formatting and linting
 
 Install the build dependencies:
 
 ```bash
 pip install -e .[build]
+```
+
+Reformat the code:
+
+```bash
+black .
 ```
 
 Run the static type checker:
