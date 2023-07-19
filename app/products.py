@@ -26,13 +26,13 @@ bp = Blueprint("products", __name__)
 
 @bp.route("/")
 @inject.autoparams()
-def index(product_repository: ProductRepository):
+def index(product_repository: ProductRepository) -> str:
     products = product_repository.get_all()
     return render_template("index.html", products=products)
 
 
 @bp.route("/<int:product_id>")
 @inject.autoparams()
-def get(product_id, product_repository: ProductRepository):
+def get(product_id: int, product_repository: ProductRepository) -> str:
     product = product_repository.get(product_id)
     return render_template("product.html", product=product)

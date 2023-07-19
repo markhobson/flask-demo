@@ -1,6 +1,8 @@
-from typing import Iterable
+from typing import Generator, Iterable
 import pytest
 import inject
+from inject import Binder
+from flask.testing import FlaskClient
 from app.products import Product, ProductRepository
 
 
@@ -15,15 +17,15 @@ class FakeProductRepository:
 
 
 @pytest.fixture()
-def container():
-    inject.clear_and_configure(lambda binder: binder
-        .bind(ProductRepository, FakeProductRepository())
-    )
+def container() -> Generator[None, None, None]:
+    def configure(binder: Binder) -> None:
+        binder.bind(ProductRepository, FakeProductRepository())
+    inject.clear_and_configure(configure)
     yield
     inject.clear()
 
 
-def test_list_products(client, container):
+def test_list_products(client: FlaskClient, container: None) -> None:
     response = client.get("/")
 
     assert '<a href="/1">x</a>' in response.text \
@@ -31,7 +33,7 @@ def test_list_products(client, container):
         and '<a href="/3">z</a>' in response.text
 
 
-def test_get_product(client, container):
+def test_get_product(client: FlaskClient, container: None) -> None:
     response = client.get("/2")
 
     assert "<h1>Product y</h1>" in response.text

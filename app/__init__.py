@@ -3,7 +3,7 @@ from flask import Flask
 from app import products
 
 
-def create_app():
+def create_app() -> Flask:
     inject.configure()
 
     app = Flask(__name__)
