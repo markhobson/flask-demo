@@ -20,15 +20,16 @@ class FakeProductRepository:
 
 @pytest.fixture()
 def container() -> Generator[None, None, None]:
-    def configure(binder: Binder) -> None:
-        binder.bind(ProductRepository, FakeProductRepository())
-
-    inject.clear_and_configure(configure)
     yield
     inject.clear()
 
 
 def test_list_products(client: FlaskClient, container: None) -> None:
+    def config(binder: Binder) -> None:
+        binder.bind(ProductRepository, FakeProductRepository())
+
+    inject.clear_and_configure(config)
+
     response = client.get("/")
 
     assert (
@@ -39,6 +40,11 @@ def test_list_products(client: FlaskClient, container: None) -> None:
 
 
 def test_get_product(client: FlaskClient, container: None) -> None:
+    def config(binder: Binder) -> None:
+        binder.bind(ProductRepository, FakeProductRepository())
+
+    inject.clear_and_configure(config)
+
     response = client.get("/2")
 
     assert "<h1>Product y</h1>" in response.text
