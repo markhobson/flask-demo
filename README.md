@@ -57,7 +57,7 @@ pylint app tests
 Run the static type checker:
 
 ```bash
-mypy --strict .
+mypy --strict -p app -p tests
 ```
 
 ## Running tests
