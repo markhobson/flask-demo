@@ -1,4 +1,5 @@
 import inject
+import pytest
 from flask.testing import FlaskClient
 from inject import Binder
 
@@ -6,7 +7,8 @@ from app.products import Product, ProductRepository
 from tests.support import FakeProductRepository
 
 
-def test_list_products(client: FlaskClient, container: None) -> None:
+@pytest.mark.usefixtures("container")
+def test_list_products(client: FlaskClient) -> None:
     def config(binder: Binder) -> None:
         binder.bind(
             ProductRepository,
@@ -24,7 +26,8 @@ def test_list_products(client: FlaskClient, container: None) -> None:
     )
 
 
-def test_get_product(client: FlaskClient, container: None) -> None:
+@pytest.mark.usefixtures("container")
+def test_get_product(client: FlaskClient) -> None:
     def config(binder: Binder) -> None:
         binder.bind(
             ProductRepository,
