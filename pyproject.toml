@@ -9,6 +9,15 @@ dependencies = [
 [project.optional-dependencies]
 build = [
     "black",
-    "mypy"
+    "mypy",
+    "pylint"
 ]
 test = ["pytest"]
+
+[tool.pylint.'MESSAGES CONTROL']
+disable = [
+    "missing-class-docstring",
+    "missing-function-docstring",
+    "missing-module-docstring"
+]
+good-names = ["id"]

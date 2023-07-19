@@ -42,6 +42,12 @@ Reformat the code:
 black .
 ```
 
+Lint the code:
+
+```bash
+pylint app tests
+```
+
 Run the static type checker:
 
 ```bash
