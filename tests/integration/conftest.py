@@ -1,3 +1,6 @@
+from typing import Generator
+
+import inject
 import pytest
 from flask import Flask
 from flask.testing import FlaskClient
@@ -13,3 +16,9 @@ def app() -> Flask:
 @pytest.fixture()
 def client(app: Flask) -> FlaskClient:
     return app.test_client()
+
+
+@pytest.fixture()
+def container() -> Generator[None, None, None]:
+    yield
+    inject.clear()

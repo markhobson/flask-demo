@@ -1,18 +1,9 @@
-from typing import Generator
-
 import inject
-import pytest
 from flask.testing import FlaskClient
 from inject import Binder
 
 from app.products import Product, ProductRepository
 from tests.support import FakeProductRepository
-
-
-@pytest.fixture()
-def container() -> Generator[None, None, None]:
-    yield
-    inject.clear()
 
 
 def test_list_products(client: FlaskClient, container: None) -> None:
