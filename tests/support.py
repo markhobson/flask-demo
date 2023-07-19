@@ -1,0 +1,14 @@
+from typing import Iterable
+
+from app.products import Product
+
+
+class FakeProductRepository:
+    def __init__(self, products: Iterable[Product]):
+        self.products = products
+
+    def get_all(self) -> Iterable[Product]:
+        return self.products
+
+    def get(self, product_id: int) -> Product:
+        return next(filter(lambda product: product.id == product_id, self.products))

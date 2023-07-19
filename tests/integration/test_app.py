@@ -1,4 +1,4 @@
-from typing import Generator, Iterable
+from typing import Generator
 
 import inject
 import pytest
@@ -6,17 +6,7 @@ from flask.testing import FlaskClient
 from inject import Binder
 
 from app.products import Product, ProductRepository
-
-
-class FakeProductRepository:
-    def __init__(self, products: Iterable[Product]):
-        self.products = products
-
-    def get_all(self) -> Iterable[Product]:
-        return self.products
-
-    def get(self, product_id: int) -> Product:
-        return next(filter(lambda product: product.id == product_id, self.products))
+from tests.support import FakeProductRepository
 
 
 @pytest.fixture()
