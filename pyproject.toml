@@ -13,7 +13,11 @@ build = [
     "mypy",
     "pylint"
 ]
-test = ["pytest"]
+test = [
+    "pytest",
+    "pytest-flask",
+    "pytest-playwright"
+]
 
 [tool.isort]
 profile = "black"

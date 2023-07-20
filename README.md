@@ -68,6 +68,12 @@ Install the test dependencies:
 pip install -e .[test]
 ```
 
+Install the Playwright browsers:
+
+```bash
+playwright install
+```
+
 Run the tests:
 
 ```bash
