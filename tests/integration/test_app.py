@@ -1,5 +1,6 @@
 import inject
 import pytest
+from bs4 import BeautifulSoup
 from flask.testing import FlaskClient
 from inject import Binder
 
@@ -19,11 +20,9 @@ def test_list_products(client: FlaskClient) -> None:
 
     response = client.get("/")
 
-    assert (
-        '<a href="/1">x</a>' in response.text
-        and '<a href="/2">y</a>' in response.text
-        and '<a href="/3">z</a>' in response.text
-    )
+    assert [
+        li.a.string for li in BeautifulSoup(response.text, "html.parser")("li")
+    ] == ["x", "y", "z"]
 
 
 @pytest.mark.usefixtures("container")
@@ -38,4 +37,5 @@ def test_get_product(client: FlaskClient) -> None:
 
     response = client.get("/2")
 
-    assert "<h1>Product y</h1>" in response.text
+    soup = BeautifulSoup(response.text, "html.parser")
+    assert soup.h1 and soup.h1.string == "Product y"

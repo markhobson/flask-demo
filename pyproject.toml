@@ -14,9 +14,11 @@ build = [
     "pylint"
 ]
 test = [
+    "beautifulsoup4",
     "pytest",
     "pytest-flask",
-    "pytest-playwright"
+    "pytest-playwright",
+    "types-beautifulsoup4"
 ]
 
 [tool.isort]
