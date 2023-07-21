@@ -4,8 +4,8 @@ from flask.testing import FlaskClient
 from inject import Binder
 
 from app.products import Product, ProductRepository
+from tests.integration.fakes import FakeProductRepository
 from tests.integration.pages import ProductPage, ProductsPage
-from tests.support import FakeProductRepository
 
 
 @pytest.mark.usefixtures("container")
