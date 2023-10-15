@@ -14,17 +14,17 @@ class Product:
 
 class ProductRepository:
     def __init__(self) -> None:
-        self.products = [
+        self._products = [
             Product(1, "Apple"),
             Product(2, "Banana"),
             Product(3, "Carrot"),
         ]
 
     def get_all(self) -> Iterable[Product]:
-        return self.products
+        return self._products
 
     def get(self, product_id: int) -> Product:
-        return next(filter(lambda product: product.id == product_id, self.products))
+        return next(filter(lambda product: product.id == product_id, self._products))
 
 
 bp = Blueprint("products", __name__)
