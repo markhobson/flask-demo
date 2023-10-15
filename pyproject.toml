@@ -30,3 +30,6 @@ disable = [
     "too-few-public-methods"
 ]
 good-names = ["id"]
+
+[tool.pytest.ini_options]
+live_server_scope = "package"
