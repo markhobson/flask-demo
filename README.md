@@ -33,25 +33,13 @@ Open http://127.0.0.1:5000.
 Reformat the code:
 
 ```bash
-black .
-```
-
-Organise imports:
-
-```bash
-isort .
+make format
 ```
 
 Lint the code:
 
 ```bash
-pylint app tests
-```
-
-Run the static type checker:
-
-```bash
-mypy --strict -p app -p tests
+make lint
 ```
 
 ## Running tests
@@ -65,5 +53,5 @@ playwright install
 Run the tests:
 
 ```bash
-python -m pytest tests
+make test
 ```
