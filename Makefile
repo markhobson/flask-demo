@@ -15,4 +15,4 @@ pylint:
 lint: mypy pylint
 
 test:
-	python -m pytest tests
+	pytest tests
