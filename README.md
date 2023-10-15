@@ -17,7 +17,7 @@ source .venv/bin/activate
 Install the dependencies:
 
 ```bash
-pip install -e .
+pip install -e .[dev]
 ```
 
 Run the server:
@@ -29,12 +29,6 @@ flask run
 Open http://127.0.0.1:5000.
 
 ## Formatting and linting
-
-Install the build dependencies:
-
-```bash
-pip install -e .[build]
-```
 
 Reformat the code:
 
@@ -61,12 +55,6 @@ mypy --strict -p app -p tests
 ```
 
 ## Running tests
-
-Install the test dependencies:
-
-```bash
-pip install -e .[test]
-```
 
 Install the Playwright browsers:
 

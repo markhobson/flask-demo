@@ -7,14 +7,12 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-build = [
+dev = [
+    "beautifulsoup4",
     "black",
     "isort",
     "mypy",
-    "pylint"
-]
-test = [
-    "beautifulsoup4",
+    "pylint",
     "pytest",
     "pytest-flask",
     "pytest-playwright",
