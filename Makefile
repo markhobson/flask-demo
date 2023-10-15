@@ -6,6 +6,14 @@ isort:
 
 format: black isort
 
+black-check:
+	black --check app tests
+
+isort-check:
+	isort --check app tests
+
+format-check: black-check isort-check
+
 mypy:
 	mypy --strict -p app -p tests
 
@@ -17,4 +25,4 @@ lint: mypy pylint
 test:
 	pytest tests
 
-verify: lint test
+verify: format-check lint test
