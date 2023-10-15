@@ -26,6 +26,7 @@ profile = "black"
 disable = [
     "missing-class-docstring",
     "missing-function-docstring",
-    "missing-module-docstring"
+    "missing-module-docstring",
+    "too-few-public-methods"
 ]
 good-names = ["id"]
