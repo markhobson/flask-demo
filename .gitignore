@@ -7,5 +7,8 @@ __pycache__/
 # pip
 /*.egg-info/
 
+# IntelliJ
+/.idea/
+
 # Visual Studio Code
 /.vscode/
