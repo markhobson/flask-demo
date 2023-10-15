@@ -13,7 +13,12 @@ class Product:
 
 
 class ProductRepository:
-    products = [Product(1, "Apple"), Product(2, "Banana"), Product(3, "Carrot")]
+    def __init__(self) -> None:
+        self.products = [
+            Product(1, "Apple"),
+            Product(2, "Banana"),
+            Product(3, "Carrot"),
+        ]
 
     def get_all(self) -> Iterable[Product]:
         return self.products
