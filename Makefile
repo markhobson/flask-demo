@@ -16,3 +16,5 @@ lint: mypy pylint
 
 test:
 	pytest tests
+
+verify: lint test
